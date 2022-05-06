@@ -17,5 +17,10 @@
   "bugs": {
     "url": "https://github.com/minhkhoinguy/Employee-Tracker/issues"
   },
-  "homepage": "https://github.com/minhkhoinguy/Employee-Tracker#readme"
+  "homepage": "https://github.com/minhkhoinguy/Employee-Tracker#readme",
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "inquirer": "^7.0.0",
+    "mysql2": "^2.3.3"
+  }
 }
