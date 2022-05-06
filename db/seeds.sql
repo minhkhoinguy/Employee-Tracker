@@ -18,8 +18,9 @@ VALUES ('Marketing Manager', 110400,1),
 INSERT INTO employee (first_name,last_name,role_id,manager_id)
 VALUES ('Fiora','Laurent',1,NULL),
        ('Connor','Hawke',2,1),
-       ('Akali','Tethi',3,4),
-       ('Richard','Grayson',4,NULL),
-       ('Nico','Robin ',5,2),
+       ('Akali','Tethi',3,NULL),
+       ('Richard','Grayson',4,3),
+       ('Nico','Robin ',5,NULL),
        ('Tony','Chopper',6,5),
-       ('Khada','Jhin',7,NULL);
+       ('Khada','Jhin',7,NULL),
+       ('Gao','Nguy',8,7);

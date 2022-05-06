@@ -61,7 +61,7 @@ const viewRoles = () =>{
 }
 
 const viewEmployees = () =>{
-    connection.query('SELECT employee.first_name, employee.last_name, role.title, role.salary, department.name As department FROM employee LEFT JOIN role on role.id = employee.role_id  LEFT JOIN department on department.id = role.department_id LEFT JOIN employee manager on employee.manager_id = manager.id', function (err, results) {
+    connection.query('SELECT employee.first_name, employee.last_name, role.title, role.salary, department.name As department, employee.manager_id As Manager FROM employee LEFT JOIN role on role.id = employee.role_id  LEFT JOIN department on department.id = role.department_id LEFT JOIN employee manager on employee.manager_id = employee.last_name', function (err, results) {
         console.log(results);
         menu();
     })
@@ -82,7 +82,7 @@ const addDepartment = () =>{
 }
 
 const addRole = () =>{
-    connection.query('SELECT department.id AS value, department.name AS name FROM department')
+    const addDepts = connection.query('SELECT department.id AS value, department.name AS name FROM department')
     inquirer.prompt([
         {
             type: "input",
@@ -98,7 +98,7 @@ const addRole = () =>{
             type: "input",
             message: "Please add the department for this role",
             name: "department_id",
-            choices: depts[0]
+            choices: addDepts[0]
         }
     ]).then(res =>{
         connection.query('INSERT into role SET ?', [res.title, res.salary, res.department_id],(err,data) =>{
@@ -109,30 +109,30 @@ const addRole = () =>{
 }
 
 const addEmployee = () =>{
-    connection.query('SELECT employee.id AS value, employee.last_name AS name FROM employee')
-    connection.query('SELECT role.id AS value, role.title AS name FROM role')
+    const addManager = connection.query('SELECT employee.id AS value, employee.last_name AS name FROM employee')
+    const addRole = connection.query('SELECT role.id AS value, role.title AS name FROM role')
     inquirer.prompt([
         {
             type: "input",
-            message: "Please add title for Role",
+            message: "Please add employee first name",
             name: "first_name"
         },
         {
             type: "input",
-            message: "Please add salary for this Role",
+            message: "Please add employee last name",
             name: "last_name"
         },
         {
             type: "input",
-            message: "Please add the department for this role",
+            message: "Please add role for this employee first name",
             name: "role_id",
-            choices: empRole[0]
+            choices: addRole[0]
         },
         {
             type: "input",
-            message: "Please add the department for this role",
+            message: "Please add the manager for this employee",
             name: "manager_id",
-            choices: employees[0]
+            choices: addManager[0]
         }
     ]).then(res =>{
         connection.query('INSERT into employee SET ?', [res.first_name, res.last_name, res.role_id, res.manager_id],(err,data) =>{
@@ -143,20 +143,20 @@ const addEmployee = () =>{
 }
 
 const updateEmployee = () =>{
-    connection.query('SELECT employee.id AS value, employee.last_name AS name FROM employee')
-    connection.query('SELECT role.id AS value, role.title AS name FROM role')
+    const addId = connection.query('SELECT employee.id AS value, employee.last_name AS name FROM employee')
+    const addRole = connection.query('SELECT role.id AS value, role.title AS name FROM role')
     inquirer.prompt([
         {
             type: "list",
             message: "Please select employee's role you want to update",
             name: "id",
-            choices: employees[0]
+            choices: addId[0]
         },
         {
             type: "list",
             message: "Please select the role you want to assign to the employee",
             name: "role_id",
-            choices: empRole[0]
+            choices: addRole[0]
         }
     ]).then(res =>{
         connection.query('UPDATE employee SET role_id = ? WHERE id = ?', [res.id, res.role_id],(err,data) =>{
