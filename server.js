@@ -83,6 +83,7 @@ const addDepartment = () =>{
 
 const addRole = () =>{
     const addDepts = connection.query('SELECT department.id AS value, department.name AS name FROM department')
+    console.log(addDepts)
     inquirer.prompt([
         {
             type: "input",
@@ -95,7 +96,7 @@ const addRole = () =>{
             name: "salary"
         },
         {
-            type: "input",
+            type: "list",
             message: "Please add the department for this role",
             name: "department_id",
             choices: addDepts[0]
@@ -123,13 +124,13 @@ const addEmployee = () =>{
             name: "last_name"
         },
         {
-            type: "input",
+            type: "list",
             message: "Please add role for this employee first name",
             name: "role_id",
             choices: addRole[0]
         },
         {
-            type: "input",
+            type: "list",
             message: "Please add the manager for this employee",
             name: "manager_id",
             choices: addManager[0]
