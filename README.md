@@ -1,21 +1,23 @@
 
+# Employees Tracker
 ## Badge
 ![license](https://img.shields.io/badge/None-MKN-brightgreen)
 ## Title
-Note Taker
+Employees Tracker
 ## Table of Contents
-- [Badge](#badge)
-- [Title](#title)
-- [Table of Contents](#table-of-contents)
-- [User Story](#user-story)
-- [Desscription](#desscription)
-- [Usage](#usage)
-- [Features](#features)
-- [Tech](#tech)
-- [License](#license)
-- [Testing](#testing)
-- [Link](#link)
-- [Question](#question)
+- [Employees Tracker](#employees-tracker)
+  - [Badge](#badge)
+  - [Title](#title)
+  - [Table of Contents](#table-of-contents)
+  - [User Story](#user-story)
+  - [Desscription](#desscription)
+  - [Usage](#usage)
+  - [Features](#features)
+  - [Tech](#tech)
+  - [License](#license)
+  - [Testing](#testing)
+  - [Link](#link)
+  - [Question](#question)
 ## User Story
 AS A business owner
 
@@ -67,24 +69,22 @@ Add a role
 
 Add an employee
 
-Update an employee role
+Update an employee infomation
 
 ## Tech
 
-HTML, CSS, JAVASCRIPT, MYSQL2,  INQUIRER
+JAVASCRIPT, NODEJS, MYSQL2, INQUIRER
 
 ## License
 None
 
 ## Testing
-<img src="./pictures/employeetracker.png">
+<img src="./pictures/employeetracker.gif">
 
 ## Link
-[Github] https://github.com/minhkhoinguy/Employee-Tracker
+[Github page](https://github.com/minhkhoinguy/Employee-Tracker)
 
-[Video] https://
-
-
+[Video](https://drive.google.com/drive/folders/1jXecyJkc4E14CgDeqD3wUU_yCffS7s_c?usp=sharing)
 ## Question
 Contact me with the link below if you have any questions!
 
